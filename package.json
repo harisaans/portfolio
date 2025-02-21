@@ -1,11 +1,8 @@
 {
   "name": "portfoli",
   "version": "0.1.0",
-  
   "dependencies": {
     "@emailjs/browser": "^3.11.0",
-    "@testing-library/jest-dom": "^5.17.0",
-    "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -14,13 +11,11 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "jest --passWithNoTests",
     "eject": "react-scripts eject",
-    "lint": "eslint .",
-    "test": "jest --passWithNoTests"
+    "lint": "eslint ."
   },
   "eslintConfig": {
     "extends": [
@@ -42,6 +37,18 @@
   },
   "devDependencies": {
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
-    "gh-pages": "^6.0.0"
+    "@babel/preset-react": "^7.26.3",
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.2.0",
+    "css-loader": "^7.1.2",
+    "file-loader": "^6.2.0",
+    "gh-pages": "^6.0.0",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^27.5.1",
+    "jest-css-modules-transform": "^4.4.2",
+    "style-loader": "^4.0.0"
+  },
+  "jest": {
+    "testEnvironment": "jsdom"
   }
 }
