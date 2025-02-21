@@ -1,7 +1,6 @@
 {
   "name": "portfoli",
   "version": "0.1.0",
-  
   "dependencies": {
     "@emailjs/browser": "^3.11.0",
     "@testing-library/jest-dom": "^5.17.0",
@@ -14,13 +13,11 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "jest --passWithNoTests",
     "eject": "react-scripts eject",
-    "lint": "eslint .",
-    "test": "jest --passWithNoTests"
+    "lint": "eslint ."
   },
   "eslintConfig": {
     "extends": [

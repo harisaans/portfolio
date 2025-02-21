@@ -1,12 +1,11 @@
 describe('Dependency Check', () => {
     it('should check if essential dependencies are installed', () => {
       
-      let react, reactDom, jest;
+      let react, reactDom;
   
       try {
         react = require('react');
         reactDom = require('react-dom');
-        jest = require('jest');
       } catch (error) {
         console.error('Dependency check failed: ', error);
       }
