@@ -1,6 +1,7 @@
 {
   "name": "portfoli",
   "version": "0.1.0",
+  "homepage": "https://harisaans.github.io/portfolio",
   "dependencies": {
     "@emailjs/browser": "^3.11.0",
     "@testing-library/jest-dom": "^5.17.0",
@@ -18,7 +19,9 @@
     "build": "react-scripts build",
     "test": "jest --passWithNoTests",
     "eject": "react-scripts eject",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
