@@ -1,37 +1,70 @@
 import React from 'react'
 import './skills.css'
-import UIDesign from "../../assets/ui-design.png"
-import WebDesign from "../../assets/website-design.png"
-import AppDesign from "../../assets/app-design.png"
+import { FaCloud, FaDocker, FaShieldAlt, FaCode, FaChartLine, FaRobot } from 'react-icons/fa'
 
+const skillGroups = [
+  {
+    icon: <FaCloud/>,
+    title: 'Cloud & Infrastructure',
+    desc: 'AWS, Azure (VNets) and GCore across hybrid cloud environments, designed for high availability and cost efficiency.',
+    tags: ['AWS', 'Azure', 'GCore', 'Hybrid Cloud'],
+  },
+  {
+    icon: <FaDocker/>,
+    title: 'Containers & Orchestration',
+    desc: 'Kubernetes (EKS/AKS) at production scale, with Docker and Helm for packaging and repeatable deployments.',
+    tags: ['Kubernetes', 'Docker', 'Helm', 'EKS/AKS'],
+  },
+  {
+    icon: <FaCode/>,
+    title: 'IaC & Configuration Management',
+    desc: 'Terraform and Ansible to provision infrastructure and automate routine operational workflows.',
+    tags: ['Terraform', 'Ansible', 'Python', 'Bash'],
+  },
+  {
+    icon: <FaChartLine/>,
+    title: 'CI/CD & Delivery',
+    desc: 'Building automated pipelines that cut release cycle time and improve visibility into delivery performance.',
+    tags: ['GitHub Actions', 'Jenkins', 'Harness'],
+  },
+  {
+    icon: <FaShieldAlt/>,
+    title: 'Security & Observability',
+    desc: 'End-to-end RBAC, least-privilege access, encryption at rest/in transit, plus Prometheus and Grafana for monitoring.',
+    tags: ['RBAC', 'Prometheus', 'Grafana', 'Encryption'],
+  },
+  {
+    icon: <FaRobot/>,
+    title: 'MLOps & GenAI',
+    desc: 'Applying SRE and container orchestration principles to GPU workloads, AI agent deployment and GenAI productionization.',
+    tags: ['Amazon Bedrock', 'Agentcore', 'GPU Workloads'],
+  },
+]
 
 const Skills = () => {
   return (
     <section id="skills">
-        <span className="skillTitle">What I do</span>
-        <span className="skillDescription">I am a skilled and passionate web designer with experience in creating visually appealing and user-friendly websites. I have a strong understanding Of design and a keen eye for detail. I am proficient in HTML, CSS, and JavaScript, as well as design software such as Adobe Photoshop and Illustrator.</span>
+        <span className="sectionTag mono">{'// what I work with'}</span>
+        <span className="skillTitle">Skills &amp; Toolchain</span>
+        <span className="skillDescription">
+            Four+ years automating cloud infrastructure and securing enterprise platforms — now extending
+            that foundation into MLOps and GenAI productionization.
+        </span>
         <div className="skillBars">
-            <div className="skillBar">
-                <img src={UIDesign} alt="UIDesign" className="skillBarImg"/>
-                <div className="skillBarText">
-                    <h2>UI/UX Design</h2>
-                    <p>I create intuitive and visually engaging user interfaces to enhance the overall user experience.</p>
+            {skillGroups.map((group) => (
+                <div className="skillBar" key={group.title}>
+                    <div className="skillIcon">{group.icon}</div>
+                    <div className="skillBarText">
+                        <h2>{group.title}</h2>
+                        <p>{group.desc}</p>
+                        <div className="skillTags">
+                            {group.tags.map((tag) => (
+                                <span className="skillTag mono" key={tag}>{tag}</span>
+                            ))}
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div className="skillBar">
-                <img src={WebDesign} alt="WebDesign" className="skillBarImg"/>
-                <div className="skillBarText">
-                    <h2>Website Design</h2>
-                    <p>I craft compelling and user-friendly websites that captivate and engage online audiences.</p>
-                </div>
-            </div>
-            <div className="skillBar">
-                <img src={AppDesign} alt="AppDesign" className="skillBarImg"/>
-                <div className="skillBarText">
-                    <h2>App Design</h2>
-                    <p>I design user-centric mobile and web applications for seamless digital experiences.</p>
-                </div>
-            </div>
+            ))}
         </div>
     </section>
   )

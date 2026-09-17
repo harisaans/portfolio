@@ -1,0 +1,106 @@
+#experience{
+    width: 100vw;
+    max-width: 55rem;
+    margin: 5rem auto;
+    padding: 0 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.expTitle{
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 3rem;
+}
+
+.timeline{
+    width: 100%;
+}
+
+.timelineItem{
+    display: flex;
+    gap: 1.5rem;
+}
+
+.timelineMarker{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.timelineDot{
+    width: 0.9rem;
+    height: 0.9rem;
+    border-radius: 50%;
+    background: var(--accent);
+    box-shadow: 0 0 0 4px var(--accent-soft);
+    flex-shrink: 0;
+    margin-top: 0.4rem;
+}
+
+.timelineLine{
+    flex: 1;
+    width: 2px;
+    background: var(--border);
+    margin: 0.4rem 0;
+}
+
+.timelineCard{
+    padding-bottom: 3rem;
+    max-width: 100%;
+}
+
+.timelinePeriod{
+    display: inline-block;
+    font-size: 0.75rem;
+    color: var(--accent);
+    background: var(--accent-soft);
+    padding: 0.2rem 0.7rem;
+    border-radius: 0.4rem;
+    margin-bottom: 0.75rem;
+}
+
+.timelineRole{
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+
+.timelineContext{
+    display: block;
+    color: var(--text-dim);
+    font-size: 0.9rem;
+    margin: 0.25rem 0 1rem;
+}
+
+.timelinePoints{
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+
+.timelinePoints li{
+    position: relative;
+    padding-left: 1.2rem;
+    font-size: 0.92rem;
+    font-weight: 300;
+    color: var(--text-dim);
+    line-height: 1.6;
+}
+
+.timelinePoints li::before{
+    content: "▹";
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+}
+
+@media screen and (max-width:600px) {
+    .expTitle{
+        font-size: 2rem;
+    }
+    .timelineItem{
+        gap: 1rem;
+    }
+}

@@ -1,82 +1,205 @@
 #intro{
-    height: calc(100vh - 4rem);
+    min-height: calc(100vh - 4.5rem);
     width: 100vw;
     max-width: 75rem;
     margin: 0 auto;
-    overflow: hidden;
+    padding: 3rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 3rem;
     position: relative;
 }
 
-.bg{
+#intro::before{
+    content: "";
     position: absolute;
-    top: -4rem;
-    right: 0;
+    top: -10%;
+    right: -10%;
+    width: 30rem;
+    height: 30rem;
+    background: radial-gradient(circle, rgba(53,224,192,0.15) 0%, rgba(53,224,192,0) 70%);
     z-index: -1;
-    object-fit: cover;
-    height: 100vh;
 }
 
 .introContent{
-    height: 100vh;
-    width: 100vw;
-    padding: 2rem;
-    font-size: 3rem;
-    font-weight: 700;
+    max-width: 34rem;
     display: flex;
     flex-direction: column;
-    justify-content: center;
 }
 
-.hello{
-    font-size: 1.75rem;
-    font-weight: 100;
+.badge{
+    display: inline-block;
+    width: fit-content;
+    font-size: 0.8rem;
+    color: var(--accent);
+    background: var(--accent-soft);
+    border: 1px solid rgba(53,224,192,0.35);
+    padding: 0.35rem 0.9rem;
+    border-radius: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+.introText{
+    font-size: 2.75rem;
+    font-weight: 700;
+    line-height: 1.2;
 }
 
 .introName{
-    color: yellow;
+    color: var(--accent);
 }
 
 .introPara{
-    font-size: medium;
+    font-size: 1.05rem;
     font-weight: 300;
-    
+    color: var(--text-dim);
+    line-height: 1.7;
+    margin: 1.5rem 0 2rem;
+}
+
+.introBtns{
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
 }
 
 .btn{
-    background: white;
-    margin: 1rem 0;
-    padding: 0.75rem 1.5rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.85rem 1.6rem;
     border: none;
-    border-radius: 2rem;
+    border-radius: 0.6rem;
+    font-size: 0.95rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: transform 0.15s ease, background 0.2s ease;
+}
+.btn:hover{
+    transform: translateY(-2px);
 }
 
-.btnImg{
-    object-fit: cover;
-    margin: 0 0.25rem;
-    height: 1rem;
+.primaryBtn{
+    background: var(--accent);
+    color: #06110d;
 }
 
-@media screen and (max-width:840px) {
-    .bg{
-        right: -10vw
-    }
-    .introContent{
-        font-size: 10vw;
-    }
-    .hello{
-        font-size: 4.5vw;
-    }
-
+.secondaryBtn{
+    background: transparent;
+    color: var(--text);
+    border: 1px solid var(--border);
 }
+.secondaryBtn:hover{
+    border-color: var(--accent);
+}
+
+.introStats{
+    display: flex;
+    gap: 2rem;
+    margin-top: 3rem;
+    flex-wrap: wrap;
+}
+
+.statItem{
+    display: flex;
+    flex-direction: column;
+}
+
+.statNum{
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: var(--accent);
+}
+
+.statLabel{
+    font-size: 0.8rem;
+    color: var(--text-dim);
+    max-width: 9rem;
+}
+
+.introVisual{
+    flex-shrink: 0;
+}
+
+.terminalCard{
+    width: 26rem;
+    max-width: 90vw;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 0.9rem;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+}
+
+.terminalHeader{
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.75rem 1rem;
+    background: var(--bg-alt);
+    border-bottom: 1px solid var(--border);
+}
+
+.dot{
+    width: 0.7rem;
+    height: 0.7rem;
+    border-radius: 50%;
+}
+.dot.red{ background: #ff5f56; }
+.dot.yellow{ background: #ffbd2e; }
+.dot.green{ background: #27c93f; }
+
+.terminalTitle{
+    margin-left: 0.75rem;
+    font-size: 0.75rem;
+    color: var(--text-dim);
+}
+
+.terminalBody{
+    padding: 1.25rem;
+    font-size: 0.82rem;
+    line-height: 1.9;
+}
+
+.terminalBody .prompt{
+    color: var(--accent);
+    margin-right: 0.5rem;
+}
+
+.terminalBody .out{
+    color: var(--text-dim);
+    padding-left: 1rem;
+}
+
+.cursor{
+    color: var(--accent);
+    animation: blink 1s step-end infinite;
+}
+
+@keyframes blink{
+    50%{ opacity: 0; }
+}
+
+@media screen and (max-width:900px) {
+    #intro{
+        flex-direction: column;
+        text-align: left;
+        padding-top: 2rem;
+    }
+    .introVisual{
+        width: 100%;
+    }
+    .terminalCard{
+        width: 100%;
+    }
+}
+
 @media screen and (max-width:480px) {
-    .bg{
-        right: -40vw
+    .introText{
+        font-size: 2rem;
     }
-    .introContent{
-        font-size: 10vw;
+    .introStats{
+        gap: 1.25rem;
     }
-    .hello{
-        font-size: 4.5vw;
-    }
-    
 }

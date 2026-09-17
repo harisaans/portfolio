@@ -1,88 +1,88 @@
 #contactPage{
-    min-height: calc(100vh-4rem);
+    min-height: 60vh;
     width: 100vw;
-    max-width: 60rem;
-    margin: 0 auto;
+    max-width: 45rem;
+    margin: 5rem auto 2rem;
     text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    padding: 0 1.5rem;
 }
 
 .contactPageTitle{
-    font-size: 3rem;
+    font-size: 2.5rem;
+    font-weight: 700;
     margin-bottom: 1rem;
 }
 
-.clientDesc{
-    font-weight: 300;
-    font-size: 1rem;
-}
-
-.clientImgs{
-    margin: 1rem 0;
-    display: flex;
-    flex-wrap: wrap;
-}
-
-.clientImg{
-    object-fit: cover;
-    width:23%;
-    min-width: 9rem;
-    margin: auto;
-    padding: 0.25rem;
-}
-
-#clients{
-    padding: 2rem;
-}
-
 .contactDesc{
-    padding: 1rem;
-    font-size: medium;
+    padding: 0 1rem 1rem;
+    font-size: 1rem;
     font-weight: 300;
+    color: var(--text-dim);
+    max-width: 32rem;
 }
 
 .contactForm{
-    margin: 1rem;
+    margin-top: 1.5rem;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 90vw;
-    max-width: 55rem;
+    width: 100%;
+    max-width: 32rem;
 }
 
 .name, .email, .msg{
-    font-size: medium;
+    font-size: 0.95rem;
     width: 100%;
-    max-width: 45rem;
-    margin: 0.5rem;
-    padding: 0.5rem 1rem;
-    color: white;
-    border: none;
-    border-radius: 0.5rem;
-    background: rgb(40,40,40);
+    margin: 0.5rem 0;
+    padding: 0.85rem 1.1rem;
+    color: var(--text);
+    border: 1px solid var(--border);
+    border-radius: 0.6rem;
+    background: var(--surface);
+}
+.name:focus, .email:focus, .msg:focus{
+    outline: none;
+    border-color: var(--accent);
+}
 
+.msg{
+    resize: vertical;
 }
 
 .submitBtn{
-    background: white;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--accent);
+    color: #06110d;
     border: none;
-    border-radius: 0.5rem;
-    padding: 0.75rem 3.5rem;
-    margin: 2rem;
+    border-radius: 0.6rem;
+    padding: 0.85rem 2.2rem;
+    margin: 1.5rem 0 2rem;
+    font-size: 0.95rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: transform 0.15s ease;
+}
+.submitBtn:hover{
+    transform: translateY(-2px);
 }
 
+.links{
+    display: flex;
+    gap: 1.25rem;
+}
 
-
-.link{
-    object-fit: cover;
-    width:1.2%;
-    height: auto;
-    min-width: 4rem;
-    
-    margin: 0 0.75rem;
-
+.links a{
+    color: var(--text-dim);
+    font-size: 1.4rem;
+    transition: color 0.2s ease;
+}
+.links a:hover{
+    color: var(--accent);
 }

@@ -1,26 +1,69 @@
 import React from 'react'
 import './works.css'
-import Portfolio1 from "../../assets/portfolio-1.png"
-import Portfolio2 from "../../assets/portfolio-2.png"
-import Portfolio3 from "../../assets/portfolio-3.png"
-import Portfolio4 from "../../assets/portfolio-4.png"
-import Portfolio5 from "../../assets/portfolio-5.png"
-import Portfolio6 from "../../assets/portfolio-6.png"
+import { FaServer, FaDatabase, FaLock, FaChartBar, FaRobot, FaCogs } from 'react-icons/fa'
+
+const projects = [
+  {
+    icon: <FaServer/>,
+    title: 'Multi-Cloud Kubernetes Platform',
+    desc: 'Designed and maintained Kubernetes clusters spanning AWS and GCore, standardizing deployments for high availability and consistent performance.',
+    tags: ['Kubernetes', 'AWS', 'GCore', 'Helm'],
+  },
+  {
+    icon: <FaDatabase/>,
+    title: 'Zero-Downtime Database Migration',
+    desc: 'Orchestrated the migration of MariaDB and PerconaDB workloads across cloud providers with minimal service interruption.',
+    tags: ['MariaDB', 'PerconaDB', 'Migration'],
+  },
+  {
+    icon: <FaLock/>,
+    title: 'Enterprise RBAC & Access Governance',
+    desc: 'Architected end-to-end role-based access control for a CI/CD platform, securing access for 800+ developers while meeting compliance requirements.',
+    tags: ['RBAC', 'Compliance', 'Security'],
+  },
+  {
+    icon: <FaChartBar/>,
+    title: 'Delivery Metrics Pipeline',
+    desc: 'Built automated pipelines that aggregate SCM and CI/CD metrics into a single view, improving visibility into delivery performance and system health.',
+    tags: ['GitHub Actions', 'Observability'],
+  },
+  {
+    icon: <FaCogs/>,
+    title: 'Infrastructure as Code Rollout',
+    desc: 'Automated cloud provisioning with Terraform and Ansible, cutting manual provisioning effort and enabling scalable, repeatable environments.',
+    tags: ['Terraform', 'Ansible', 'IaC'],
+  },
+  {
+    icon: <FaRobot/>,
+    title: 'GenAI Productionization',
+    desc: 'Applying container orchestration and SRE practices to GPU workloads and high-availability AI agent deployment using Amazon Bedrock and Agentcore.',
+    tags: ['Amazon Bedrock', 'Agentcore', 'MLOps'],
+  },
+]
 
 const Works = () => {
   return (
     <section id="works">
-        <h2 className="worksTitle">My Portfolio</h2>
-        <span className="worksDescription">I take pride in paying attention to the smallest details and making sure that my work is pixel perfect. I am excited to bring my skills and experience to help businesses achieve their goals and create a strong online presence."</span>
+        <span className="sectionTag mono">{'// selected work'}</span>
+        <h2 className="worksTitle">Projects &amp; Impact</h2>
+        <span className="worksDescription">
+            A snapshot of the infrastructure, automation and reliability work I've led — from
+            multi-cloud Kubernetes to GenAI productionization.
+        </span>
         <div className="workImages">
-            <img src={Portfolio1} alt="Portfolio1" class="worksImg"/>
-            <img src={Portfolio2} alt="Portfolio2" class="worksImg"/>
-            <img src={Portfolio3} alt="Portfolio3" class="worksImg"/>
-            <img src={Portfolio4} alt="Portfolio4" class="worksImg"/>
-            <img src={Portfolio5} alt="Portfolio5" class="worksImg"/>
-            <img src={Portfolio6} alt="Portfolio6" class="worksImg"/>
+            {projects.map((project) => (
+                <div className="workCard" key={project.title}>
+                    <div className="workIcon">{project.icon}</div>
+                    <h3>{project.title}</h3>
+                    <p>{project.desc}</p>
+                    <div className="workTags">
+                        {project.tags.map((tag) => (
+                            <span className="workTag mono" key={tag}>{tag}</span>
+                        ))}
+                    </div>
+                </div>
+            ))}
         </div>
-        <button className="worksBtn">See More</button>
     </section>
   )
 }

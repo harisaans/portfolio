@@ -4,7 +4,7 @@ import "./footer.css"
 const Footer = () => {
   return (
     <footer className="footer">
-        Copyright #12331; 2023 Mohd Haris Ansari. 
+        <span className="mono">© {new Date().getFullYear()} Mohd Haris Ansari — Built with React</span>
     </footer>
   )
 }

@@ -1,16 +1,7 @@
 import React, { useRef } from 'react'
 import './contact.css'
-import Walmart from '../../assets/walmart.png'
-import Adobe from '../../assets/adobe.png'
-import Microsoft from '../../assets/microsoft.png'
-import Facebook from '../../assets/facebook.png'
-import FacebookIcon from '../../assets/facebook-icon.png'
-import TwitterIcon from '../../assets/twitter.png'
-import YoutubeIcon from '../../assets/youtube.png'
-import InstagramIcon from '../../assets/instagram.png'
-import LinkedinIcon from '../../assets/linkedin.png'
-import GitHubIcon from '../../assets/github.png'
 import emailjs from '@emailjs/browser';
+import { FiLinkedin, FiGithub, FiMail, FiSend } from 'react-icons/fi'
 
 const Contact = () => {
   const form = useRef();
@@ -20,7 +11,7 @@ const Contact = () => {
     emailjs.sendForm('service_ix92ujb', 'template_pth7unh', form.current, 'WhDv4QwSlx6gyK0xH')
         .then((result) => {
             console.log(result.text);
-            alert("Email sent")
+            alert("Message sent — thanks for reaching out!")
             e.target.reset();
         }, (error) => {
             console.log(error.text);
@@ -28,39 +19,25 @@ const Contact = () => {
   };
   return (
     <section id="contactPage">
-        <div id="clients">
-            <h1 className="contactPageTitle">My Clients</h1>
-            <p class="clientDesc">
-                I have had the oppertunity to work with a diverse group of companies.
-                Some of the notable companies I have worked with includes
-            </p>
-            <div className="clientImgs">
-                <img src={Walmart} alt="Clients" className="clientImg"/>
-                <img src={Adobe} alt="Clients" className="clientImg"/>
-                <img src={Microsoft} alt="Clients" className="clientImg"/>
-                <img src={Facebook} alt="Clients" className="clientImg"/>
-            </div>
-        </div>
         <div id="contact">
-          <h1 className="contactPageTitle">Contact Me</h1>
-          <span className="conactDesc">Please fill out the form below to discuss any work oppertunities.</span>
+          <span className="sectionTag mono">{'// get in touch'}</span>
+          <h1 className="contactPageTitle">Let's Build Something Reliable</h1>
+          <span className="contactDesc">
+              Open to DevOps, SRE and MLOps roles — or just want to talk infrastructure? Send a message.
+          </span>
 
           <form className="contactForm" ref={form} onSubmit={sendEmail}>
-            <input type="text" className="name" placeholder='Your Name' name='from_name'/>
-            <input type="email" className="email" placeholder='Your Email'name='from_email'/>
-            <textarea name="message" className="msg" rows="5" placeholder='Your Message'></textarea>
-            <button type='submit' value='Send' className="submitBtn">Submit</button>
-            
+            <input type="text" className="name" placeholder='Your Name' name='from_name' required/>
+            <input type="email" className="email" placeholder='Your Email' name='from_email' required/>
+            <textarea name="message" className="msg" rows="5" placeholder='Your Message' required></textarea>
+            <button type='submit' className="submitBtn">Send Message <FiSend/></button>
+
             <div className="links">
-              <a href='https://www.linkedin.com/in/mohd-haris-ansari-4a20801b9/'><img src={LinkedinIcon} alt="Facebook" class="link"/></a>
-              <a href='https://github.com/harisaans/'><img src={GitHubIcon} alt="Facebook" class="link"/></a>
-              <a href='https://www.facebook.com/haris.ansari.148/'><img src={FacebookIcon} alt="Facebook" class="link"/></a>
-              <a href='https://twitter.com/Harisaans'><img src={TwitterIcon} alt="Twitter" class="link"/></a>
-              <a href='https://www.youtube.com/channel/UC5EJ-4BCkNS4II8EsMs_ZCQ'><img src={YoutubeIcon} alt="Youtube" class="link"/></a>
-              <a href='https://www.instagram.com/harisaans/'><img src={InstagramIcon} alt="Instagram" class="link"/></a>
+              <a href='https://www.linkedin.com/in/mohd-haris-ansari-4a20801b9/' target="_blank" rel="noreferrer" aria-label="LinkedIn"><FiLinkedin/></a>
+              <a href='https://github.com/harisaans/' target="_blank" rel="noreferrer" aria-label="GitHub"><FiGithub/></a>
+              <a href='mailto:harisaans@gmail.com' aria-label="Email"><FiMail/></a>
             </div>
           </form>
-            
         </div>
     </section>
   )

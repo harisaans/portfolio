@@ -1,34 +1,82 @@
 import React, { useState } from 'react';
 import './navbar.css';
-import logo from '../../assets/logo.png'
-import {Link} from 'react-scroll';
-import contactImg from "../../assets/contact.png"
-import menu from "../../assets/menu.png"
+import { Link } from 'react-scroll';
+import { HiMenu, HiX } from 'react-icons/hi';
+
+const navLinks = [
+  { to: 'intro', label: 'Home', offset: -80 },
+  { to: 'skills', label: 'Skills', offset: -50 },
+  { to: 'experience', label: 'Experience', offset: -50 },
+  { to: 'works', label: 'Projects', offset: -50 },
+  { to: 'certifications', label: 'Certifications', offset: -50 },
+];
 
 const Navbar = () => {
-  const [showMenu,setShowMenu] = useState(false);  
+  const [showMenu, setShowMenu] = useState(false);
   return (
     <nav className="navbar">
-        <img src={logo} alt="logo" className='logo'/>
-        <div className="desktopMenu">
-            <Link activeClass='active' to='intro' spy={true} smooth={true} offset={-100} duration={500} className="desktopMenuListItem">Home</Link>
-            <Link activeClass='active' to='skills' spy={true} smooth={true} offset={-50} duration={500}className="desktopMenuListItem">About</Link>
-            <Link activeClass='active' to='works' spy={true} smooth={true} offset={-50} duration={500}className="desktopMenuListItem">Portfolio</Link>
-            <Link activeClass='active' to='clients' spy={true} smooth={true} offset={-50} duration={500}className="desktopMenuListItem">Clients</Link>
-        </div>
-        <button class="desktopMenuBtn" onClick={()=>{
-            document.getElementById('contact').scrollIntoView({behavior:'smooth'});
-        }}>
-            <img src={contactImg} alt="" class="desktopMenuImg"/>Contact Me</button>
-        <img src={menu} alt="Menu" className='mobMenu' onClick={()=> setShowMenu(!showMenu)}/>
-        <div className="navMenu" style={{display: showMenu?'flex':'none'}}>
-            <Link activeClass='active' to='intro' spy={true} smooth={true} offset={-100} duration={500} className="listItem" onClick={()=> setShowMenu(false)}>Home</Link>
-            <Link activeClass='active' to='skills' spy={true} smooth={true} offset={-50} duration={500}className="listItem"onClick={()=> setShowMenu(false)}>About</Link>
-            <Link activeClass='active' to='works' spy={true} smooth={true} offset={-50} duration={500}className="listItem"onClick={()=> setShowMenu(false)}>Portfolio</Link>
-            <Link activeClass='active' to='clients' spy={true} smooth={true} offset={-50} duration={500}className="listItem"onClick={()=> setShowMenu(false)}>Clients</Link>         
-            <Link activeClass='active' to='contact' spy={true} smooth={true} offset={-50} duration={500}className="listItem"onClick={()=> setShowMenu(false)}>Contact</Link>
-        </div>
-    </nav> )
-}
+      <Link to="intro" spy={true} smooth={true} offset={-80} duration={500} className="logo mono">
+        HA<span className="logoDot">.</span>
+      </Link>
+      <div className="desktopMenu">
+        {navLinks.map((link) => (
+          <Link
+            key={link.to}
+            activeClass="active"
+            to={link.to}
+            spy={true}
+            smooth={true}
+            offset={link.offset}
+            duration={500}
+            className="desktopMenuListItem"
+          >
+            {link.label}
+          </Link>
+        ))}
+      </div>
+      <Link
+        to="contact"
+        spy={true}
+        smooth={true}
+        offset={-50}
+        duration={500}
+        className="desktopMenuBtn"
+      >
+        Contact
+      </Link>
+      <button className="mobMenuBtn" onClick={() => setShowMenu(!showMenu)} aria-label="Toggle menu">
+        {showMenu ? <HiX size={26} /> : <HiMenu size={26} />}
+      </button>
+      <div className="navMenu" style={{ display: showMenu ? 'flex' : 'none' }}>
+        {navLinks.map((link) => (
+          <Link
+            key={link.to}
+            activeClass="active"
+            to={link.to}
+            spy={true}
+            smooth={true}
+            offset={link.offset}
+            duration={500}
+            className="listItem"
+            onClick={() => setShowMenu(false)}
+          >
+            {link.label}
+          </Link>
+        ))}
+        <Link
+          to="contact"
+          spy={true}
+          smooth={true}
+          offset={-50}
+          duration={500}
+          className="listItem"
+          onClick={() => setShowMenu(false)}
+        >
+          Contact
+        </Link>
+      </div>
+    </nav>
+  );
+};
 
-export default Navbar
+export default Navbar;
